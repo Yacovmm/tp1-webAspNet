@@ -1,0 +1,40 @@
+﻿@model System.Collections.Generic.List<Domain.Amigo>
+
+@{
+    ViewBag.Title = "Lista";
+    
+}
+
+<h2>Lista Aniversario</h2>
+
+@if (!Model.Any())
+{
+    <p>Não temos amigos ainda</p>
+}
+else
+{
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.Name</td>
+                    <td>@x.LastName</td>
+                    <td>@x.Birthday</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+    @Html.ActionLink("Lista Email", "Index", "Home")
+
+}

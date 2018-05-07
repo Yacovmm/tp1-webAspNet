@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,7 +11,7 @@ using Data;
 namespace Domain
 {
     [Table("Amigo")]
-    public class Amigo
+    public class Amigo : IEnumerable
     {
          
         [Key]
@@ -31,5 +32,10 @@ namespace Domain
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Birthday { get; set; }
+
+        public IEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

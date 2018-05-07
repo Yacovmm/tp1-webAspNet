@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Data;
 using Domain;
+using WEB.Models;
 
 namespace WEB.Controllers
 {
@@ -24,9 +25,16 @@ namespace WEB.Controllers
 
         public ActionResult Index()
         {
-           
+            var amigo = _context.Amigos.ToList();
             
-            return View();
+            return View(amigo);
+        }
+
+        public ActionResult Lista()
+        {
+            var amigo = _context.Amigos.ToList();
+
+            return View(amigo);
         }
 
         public ActionResult New()
